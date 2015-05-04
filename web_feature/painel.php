@@ -1,9 +1,12 @@
 <?php
-	if ( isset($_COOKIE['login']) == FALSE )
+	session_start();
+
+	// if ( isset($_COOKIE['login']) == FALSE )
+	if ( isset($_SESSION['login']) == FALSE )
 	{
 		echo "Acesso negado!";
 		exit;
 	}	
 ?>
 
-Olá <?php echo $_COOKIE['login']; ?>!
+Olá <?php echo $_SESSION['login']; ?>!

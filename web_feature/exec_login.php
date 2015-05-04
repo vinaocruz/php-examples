@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	define("LOGIN", "vinao");
 	define("PASS", "123123");
 
@@ -12,7 +14,9 @@
 
 	if ($login == LOGIN AND $_POST['password'] == PASS)
 	{
-		setcookie('login', $login);
+		// setcookie('login', $login);
+		$_SESSION['login'] = $login;
+
 		header("Location: painel.php");
 		// echo "Usuário logado";
 	}else
