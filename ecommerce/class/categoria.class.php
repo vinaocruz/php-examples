@@ -4,6 +4,7 @@ class Categoria{
 
 	public $nome;
 	public $descricao;
+	public $conn;
 
 	function __construct($conn)
 	{
@@ -11,12 +12,17 @@ class Categoria{
 	}
 
 	public function cadastrar(){
-
+		
 	}
 
-	public function listar()
+	public function listar($categoria_id)
 	{
 
 	}
-	
+
 }
+?>
+
+
+
+
