@@ -1,23 +1,36 @@
 <?php
-// var_dump($_POST);
-// var_dump($_FILES);
 
-$a = 0;
-$arquivo = $_FILES['foto']['name'];
-$info_file = pathinfo('uploads/'.$arquivo);
+require_once "class/produto.class.php";
+require_once "vendor/autoload.php";
 
-while(file_exists('uploads/'.$arquivo))
+$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
+
+
+
+$produto = new Produto($conn);
+
+$produto->nome = $_POST['nome'];
+$produto->descricao = $_POST['descricao'];
+$produto->preco = $_POST['preco'];
+
+$nome_imagem = $produto->salvarFoto();
+
+if($nome_imagem == FALSE)
 {
-	$a++;
-	$arquivo = $info_file['filename']."_$a.".$info_file['extension'];
-}
-
-if(move_uploaded_file($_FILES['foto']['tmp_name'], 
-			'uploads/'.$arquivo)){
-			// 'uploads/'.uniqid()."_".$_FILES['foto']['name'])){
-
-	echo "arquivo salvo";
+	echo "Falha no envio de imagem";
 }else
 {
-	echo "falha no upload";
+	$produto->imagem = $nome_imagem;
+	if($produto->cadastrar() == TRUE){
+
+		//gerar miniatura
+		$thumb = PhpThumbFactory::create('uploads/produtos/'. $nome_imagem);
+		$thumb->adaptiveResize(200, 200);
+		$thumb->save('uploads/produtos/thumb/'.$nome_imagem);
+
+		echo 'Produto cadastrado com sucesso';
+	}else
+	{
+		echo 'Erro ao cadastrar produto';
+	}
 }

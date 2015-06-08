@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "5.2.10",
+        "weotch/phpthumb": "1.0.5"
+    }
+}

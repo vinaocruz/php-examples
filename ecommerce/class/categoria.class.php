@@ -15,7 +15,7 @@ class Categoria{
 		
 	}
 
-	public function listar($categoria_id)
+	public function listar()
 	{
 
 	}

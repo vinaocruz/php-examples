@@ -1,38 +1,59 @@
 <?php
 
 class Produto{
+	public $nome;
+	public $descricao;
+	public $preco;
+	public $imagem;
 
-	public function cadastrar(){
-		$arquivo = $this->enviarFoto();
-		"INSERT INTO produto (nome, foto) VALUES ('$this->nome', '$arquivo' )";
+	protected $conn;
+
+	function __construct($conn)
+	{
+		$this->conn = $conn;
 	}
 
-	public function enviarFoto()
+	public function consulta($id)
 	{
+		$sql = "SELECT * FROM produtos WHERE id = $id";
+		$query = mysqli_query($this->conn, $sql);
+		$linha = mysqli_fetch_assoc($query);
 
-		$a = 0;
-		$arquivo = $_FILES['foto']['name'];
-		$info_file = pathinfo('uploads/'.$arquivo);
+		$this->nome = $linha['nome'];
+		$this->preco = $linha['preco'];
+		$this->descricao = $linha['descricao'];
+		$this->imagem = $linha['imagem'];
+	}
 
-		while(file_exists('uploads/'.$arquivo))
-		{
-			$a++;
-			$arquivo = $info_file['filename']."_$a.".$info_file['extension'];
-		}
 
-		if($_FILES['foto']['size'] < 500*1024)
-		{
-			return NULL;
-		}
+	/**
+	 * Receber as informações e salvar no banco de dados
+	 */
+	public function cadastrar()
+	{
+		$sql = "INSERT INTO produtos (nome, descricao, preco, imagem, data_criado)
+		VALUES('$this->nome', '$this->descricao', '$this->preco', '$this->imagem', NOW())";
+	
+		return mysqli_query($this->conn, $sql);
+	}
 
+	/**
+	 * Salvar imagem na pasta
+	 */
+	public function salvarFoto()
+	{
+		//define nome do arquivo do produto
+		$arquivo = uniqid()."_".$_FILES['foto']['name'];
+
+		//guarda imagem na pasta de uploads
 		if(move_uploaded_file($_FILES['foto']['tmp_name'], 
-					'uploads/'.$arquivo)){
-					// 'uploads/'.uniqid()."_".$_FILES['foto']['name'])){
+					"uploads/produtos/".$arquivo)){
 
+			//retorna o nome do arquivo
 			return $arquivo;
 		}else
 		{
-			return NULL;
+			return FALSE;
 		}
 	}
 

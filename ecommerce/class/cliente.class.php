@@ -1,6 +1,6 @@
 <?php
 
-class Cliente{
+class Cliente extends Usuario{
 	
 	function __construct()
 	{
@@ -10,6 +10,11 @@ class Cliente{
 	public function cadastrar()
 	{
 
+	}
+
+	public function alterarSenha()
+	{
+		echo "Alterando senha de cliente";
 	}
 
 }

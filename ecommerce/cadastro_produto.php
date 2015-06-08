@@ -11,12 +11,12 @@
 				Descrição:<br />
 				<input type="text" name="descricao" />
 			</p>
-			<p>
+			<!-- <p>
 				Categoria:<br />
 				<select name="categoria">
 					<option value=""></option>
 				</select>
-			</p>
+			</p> -->
 			<p>
 				Imagem:<br />
 				<input type="file" name="foto" />
