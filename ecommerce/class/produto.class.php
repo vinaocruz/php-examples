@@ -5,8 +5,11 @@ class Produto{
 	public $descricao;
 	public $preco;
 	public $imagem;
+	public $categoria_id;
 
 	protected $conn;
+	public $resultado;
+	protected $tabela = 'produtos';
 
 	function __construct($conn)
 	{
@@ -25,14 +28,30 @@ class Produto{
 		$this->imagem = $linha['imagem'];
 	}
 
+	public function consultaTodos()
+	{
+		$sql = "SELECT * FROM $this->tabela";
+		$this->resultado = mysqli_query($this->conn, $sql);		
+	}
+	public function consultaPorCategoria($categoria_id)
+	{
+		$sql = "SELECT * FROM produtos WHERE categoria_id = $categoria_id";
+		$this->resultado = mysqli_query($this->conn, $sql);		
+	}
+
+	public function pegaUm()
+	{
+		return mysqli_fetch_assoc($this->resultado);
+	}
+
 
 	/**
 	 * Receber as informações e salvar no banco de dados
 	 */
 	public function cadastrar()
 	{
-		$sql = "INSERT INTO produtos (nome, descricao, preco, imagem, data_criado)
-		VALUES('$this->nome', '$this->descricao', '$this->preco', '$this->imagem', NOW())";
+		$sql = "INSERT INTO produtos (categoria_id, nome, descricao, preco, imagem, data_criado)
+		VALUES('$this->categoria_id', '$this->nome', '$this->descricao', '$this->preco', '$this->imagem', NOW())";
 	
 		return mysqli_query($this->conn, $sql);
 	}

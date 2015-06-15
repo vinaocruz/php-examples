@@ -1,3 +1,15 @@
+<?php
+
+include 'config/init.php';
+
+$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
+mysqli_set_charset($conn, "utf8");
+
+$categoria = new Categoria($conn);
+$categoria->consultaTodas();
+
+?>
+
 <html>
 
 	<body>
@@ -11,12 +23,14 @@
 				Descrição:<br />
 				<input type="text" name="descricao" />
 			</p>
-			<!-- <p>
+			<p>
 				Categoria:<br />
 				<select name="categoria">
-					<option value=""></option>
+					<?php while( $linha = $categoria->pegaUm() ){ ?>
+					<option value="<?php echo $linha['id']; ?>"><?php echo $linha['nome']; ?></option>
+					<?php } ?>
 				</select>
-			</p> -->
+			</p>
 			<p>
 				Imagem:<br />
 				<input type="file" name="foto" />

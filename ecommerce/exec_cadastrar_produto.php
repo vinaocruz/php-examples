@@ -1,7 +1,9 @@
 <?php
 
-require_once "class/produto.class.php";
-require_once "vendor/autoload.php";
+// var_dump($_POST);exit;
+
+require_once 'config/init.php';
+
 
 $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
 
@@ -12,6 +14,7 @@ $produto = new Produto($conn);
 $produto->nome = $_POST['nome'];
 $produto->descricao = $_POST['descricao'];
 $produto->preco = $_POST['preco'];
+$produto->categoria_id = $_POST['categoria'];
 
 $nome_imagem = $produto->salvarFoto();
 
