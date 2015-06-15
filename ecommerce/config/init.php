@@ -1,7 +1,7 @@
 <?php
 
 //configura timezone
-date_timezone_set("America/Bahia");
+date_default_timezone_set("America/Bahia");
 
 //configurar autoload
 spl_autoload_register( function($nome_classe){
