@@ -1,11 +1,11 @@
 <?php
 
-abstract class Usuario{
+abstract class Usuario extends Model{
 	
 	protected $login;
 	protected $senha;
 
-	public function logar()
+	final public function logar()
 	{
 		echo 'Logando usuario';
 	}
@@ -16,6 +16,6 @@ abstract class Usuario{
 	}
 
 	//metódo abstrato serve como modelo para classe filha
-	abstract public function alterarSenha(){}
+	// abstract public function alterarSenha(){}
 
 }

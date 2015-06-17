@@ -24,7 +24,16 @@ if($nome_imagem == FALSE)
 }else
 {
 	$produto->imagem = $nome_imagem;
-	if($produto->cadastrar() == TRUE){
+
+	$dados = array(
+		'nome' => $produto->nome,
+		'descricao' => $produto->descricao,
+		'preco' => $produto->preco,
+		'categoria_id' => $produto->categoria_id,
+		'imagem' => $produto->imagem,
+		'data_criado' => date('Y-m-d H:i:s'),
+	);
+	if($produto->cadastrar($dados) == TRUE){
 
 		//gerar miniatura
 		$thumb = PhpThumbFactory::create('uploads/produtos/'. $nome_imagem);

@@ -1,20 +1,21 @@
 <?php
 
-class Produto{
+class Produto extends Model{
+
 	public $nome;
 	public $descricao;
 	public $preco;
 	public $imagem;
 	public $categoria_id;
 
-	protected $conn;
-	public $resultado;
-	protected $tabela = 'produtos';
+	// protected $conn;
+	// public $resultado;
+	public $tabela = 'produtos';
 
-	function __construct($conn)
-	{
-		$this->conn = $conn;
-	}
+	// function __construct($conn)
+	// {
+	// 	$this->conn = $conn;
+	// }
 
 	public function consulta($id)
 	{
@@ -28,21 +29,21 @@ class Produto{
 		$this->imagem = $linha['imagem'];
 	}
 
-	public function consultaTodos()
-	{
-		$sql = "SELECT * FROM $this->tabela";
-		$this->resultado = mysqli_query($this->conn, $sql);		
-	}
+	// public function consultaTodos()
+	// {
+	// 	$sql = "SELECT * FROM produtos";
+	// 	$this->resultado = mysqli_query($this->conn, $sql);		
+	// }
 	public function consultaPorCategoria($categoria_id)
 	{
 		$sql = "SELECT * FROM produtos WHERE categoria_id = $categoria_id";
 		$this->resultado = mysqli_query($this->conn, $sql);		
 	}
 
-	public function pegaUm()
-	{
-		return mysqli_fetch_assoc($this->resultado);
-	}
+	// public function pegaUm()
+	// {
+	// 	return mysqli_fetch_assoc($this->resultado);
+	// }
 
 
 	/**

@@ -14,9 +14,14 @@ $categoria = new Categoria($conn);
 $categoria->nome = $nome;
 $categoria->descricao = $descricao;
 
-if($categoria->cadastrar() == TRUE)
+$dados = array(
+	'nome' => $categoria->nome,
+	'descricao' => $categoria->descricao,
+);
+
+if($categoria->cadastrar($dados) == TRUE)
 {
-	echo 'Categoria cadastradã com sucesso';
+	echo 'Categoria cadastrada com sucesso';
 }else{
 	echo 'Não foi possível cadastrar categoria';
 }

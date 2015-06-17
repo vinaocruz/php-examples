@@ -1,16 +1,18 @@
 <?php
 
 class Cliente extends Usuario{
-	
-	function __construct()
-	{
-		
-	}
+	public $tabela = 'cliente';
 
-	public function cadastrar()
-	{
+	// function __construct()
+	// {
+	// 	$this->tabela = "clientes";	
+	// }
 
-	}
+	// public function logar()
+	// {
+	// 	//reescrever o script de login
+	// }
+
 
 	public function alterarSenha()
 	{

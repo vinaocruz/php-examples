@@ -6,7 +6,7 @@ $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
 mysqli_set_charset($conn, "utf8");
 
 $categoria = new Categoria($conn);
-$categoria->consultaTodas();
+$categoria->consultaTodos();
 
 ?>
 
