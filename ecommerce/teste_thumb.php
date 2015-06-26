@@ -9,5 +9,3 @@ $thumb->save('uploads/thumb/casa.jpg');
 // $thumb->show();
 
 ?>
-
-<img src="uploads/thumb/<?php echo $linha['imagem']; ?>" />

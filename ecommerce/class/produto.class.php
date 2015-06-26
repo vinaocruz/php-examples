@@ -49,13 +49,13 @@ class Produto extends Model{
 	/**
 	 * Receber as informações e salvar no banco de dados
 	 */
-	public function cadastrar()
-	{
-		$sql = "INSERT INTO produtos (categoria_id, nome, descricao, preco, imagem, data_criado)
-		VALUES('$this->categoria_id', '$this->nome', '$this->descricao', '$this->preco', '$this->imagem', NOW())";
+	// public function cadastrar()
+	// {
+	// 	$sql = "INSERT INTO produtos (categoria_id, nome, descricao, preco, imagem, data_criado)
+	// 	VALUES('$this->categoria_id', '$this->nome', '$this->descricao', '$this->preco', '$this->imagem', NOW())";
 	
-		return mysqli_query($this->conn, $sql);
-	}
+	// 	return mysqli_query($this->conn, $sql);
+	// }
 
 	/**
 	 * Salvar imagem na pasta

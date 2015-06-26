@@ -10,17 +10,24 @@ abstract class Model{
 		$this->conn = $conn;
 	}
 
-	abstract public function getNome(){}
+	// abstract public function getNome(){}
 
 	public function consultaTodos()
 	{
 		$sql = "SELECT * FROM " . $this->tabela;
-		$this->resultado = mysqli_query($this->conn, $sql);
+
+		// $this->resultado = mysqli_query($this->conn, $sql);
+		$this->resultado = $this->conn->prepare($sql);
+		return $this->resultado->execute();
 	}
 
 	public function pegaUm()
 	{
-		return mysqli_fetch_assoc($this->resultado);
+		// return mysqli_fetch_assoc($this->resultado);
+		return $this->resultado->fetch(PDO::FETCH_ASSOC);
+	}
+	public function pegaTodos(){
+		return $this->resultado->fetchAll();
 	}
 
 	public function cadastrar($dados){

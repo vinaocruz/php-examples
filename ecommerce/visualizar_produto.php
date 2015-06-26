@@ -2,10 +2,8 @@
 
 	$id = $_GET['id'];
 
-	require_once 'class/produto.class.php';
+	require_once 'config/init.php';
 	
-	$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
-
 	$produto = new Produto($conn);
 	$produto->consulta($id);
 

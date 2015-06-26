@@ -1,9 +1,6 @@
 <?php
 
-include 'config/init.php';
-
-$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
-mysqli_set_charset($conn, "utf8");
+require 'config/init.php';
 
 $categoria = new Categoria($conn);
 $categoria->consultaTodos();

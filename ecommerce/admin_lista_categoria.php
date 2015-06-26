@@ -1,21 +1,25 @@
 <?php
 	
 	require_once 'config/init.php';
-	$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
+	// $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
 
 	$categoria = new Categoria($conn);
 	$categoria->consultaTodos();
 
+	//passo a percorrer com o FOREACH	
+	$resultados = $categoria->pegaTodos();
+
 ?>
 <html>
-
+	<?php include 'partials/head.inc.php'; ?>
 	<body>
 		<h1>Lista de categorias</h1>
 		<table>
-			<?php while($linha = $categoria->pegaUm()){ ?>
+			<?php //while($linha = $categoria->pegaUm()){
+			foreach($resultados as $linha){ ?>
 			<tr>
 				<td><?php echo $linha['nome']; ?></td>
-				<td><a href="editar_categoria.php">Editar</a></td>
+				<td><a href="admin_editar_categoria.php?id=<?php echo $linha['id']; ?>">Editar</a></td>
 				<td><a href="remover_categoria.php">Remover</a></td>
 			</tr>
 			<?php } ?>

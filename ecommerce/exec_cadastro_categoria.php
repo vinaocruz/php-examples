@@ -7,9 +7,6 @@ include 'config/init.php';
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];
 
-$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
-mysqli_set_charset($conn, "utf8");
-
 $categoria = new Categoria($conn);
 $categoria->nome = $nome;
 $categoria->descricao = $descricao;
