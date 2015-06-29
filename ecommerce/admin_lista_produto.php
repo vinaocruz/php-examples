@@ -18,8 +18,8 @@
 			<?php foreach($resultados as $linha){ ?>
 			<tr>
 				<td><?php echo $linha['nome']; ?></td>
-				<td><a class="btn btn-primary" href="admin_editar_produto.php?id=<?php echo $linha['id']; ?>">Editar</a></td>
-				<td><a class="btn btn-danger" href="remover_produto.php">Remover</a></td>
+				<td><a class="button button-primary" href="admin_editar_produto.php?id=<?php echo $linha['id']; ?>">Editar</a></td>
+				<td><a class="button button-danger" href="admin_remover_produto.php?id=<?php echo $linha['id']; ?>">Remover</a></td>
 			</tr>
 			<?php } ?>
 		</table>

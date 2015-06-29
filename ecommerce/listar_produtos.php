@@ -2,8 +2,8 @@
 
 	require_once 'config/init.php';
 	
-	$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
-	mysqli_set_charset($conn, "utf8");
+	// $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
+	// mysqli_set_charset($conn, "utf8");
 
 	$produto = new Produto($conn);
 	$produto->consultaTodos();
@@ -18,13 +18,25 @@
 
 ?>
 <html>
+	<?php include 'partials/head.inc.php'; ?>
 	<body>
+		<div class="container">
+			<?php 
+			$c = 0;
+			while( $linha = $produto->pegaUm() ){ $c++; ?>			
+		<?php if($c == 1){ ?><div class="row"><?php } ?>
+			<div class="four columns">
+				<?php echo $linha['nome']; ?>
+				<p>
+					<a class="button" href="exec_adicionar_carrinho.php?id=<?php echo $linha['id']; ?>">Comprar</a>	
+				</p>
 
-		<ul>
-			<?php while( $linha = $produto->pegaUm() ){ ?>			
-			<li><?php echo $linha['nome']; ?></li>
+			</div>
+		<?php if($c == 3){ $c = 0; ?></div><?php } ?>
 			<?php } ?>
-		</ul>
 
+		<?php if($c < 3){ ?></div><?php } ?>
+		
+		</div>
 	</body>
 </html>	

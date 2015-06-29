@@ -5,6 +5,8 @@ abstract class Model{
 	public $resultado;
 	public $tabela;
 
+	public $chave_primaria = 'id';
+
 	function __construct($conn)
 	{
 		$this->conn = $conn;
@@ -48,6 +50,16 @@ abstract class Model{
 		// INSERT INTO categoria (nome, descricao, data) VALUES ('TI', 'Teste', '2015')
 
 		return mysqli_query($this->conn, $sql);
+	}
+
+	public function remover()
+	{
+		$sql = "DELETE FROM $this->tabela WHERE $this->chave_primaria = :id";
+
+		$this->resultado = $this->conn->prepare($sql);
+		$this->resultado->bindValue(':id', $this->id);
+
+		return $this->resultado->execute();
 	}
 
 

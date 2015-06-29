@@ -19,9 +19,14 @@ class Produto extends Model{
 
 	public function consulta($id)
 	{
-		$sql = "SELECT * FROM produtos WHERE id = $id";
-		$query = mysqli_query($this->conn, $sql);
-		$linha = mysqli_fetch_assoc($query);
+		$sql = "SELECT * FROM produtos WHERE id = :id";		
+		// $query = mysqli_query($this->conn, $sql);
+		// $linha = mysqli_fetch_assoc($query);
+		$this->resultado = $this->conn->prepare($sql);
+		$this->resultado->bindValue(':id', $id);
+		$this->resultado->execute();
+
+		$linha = $this->pegaUm();
 
 		$this->nome = $linha['nome'];
 		$this->preco = $linha['preco'];
