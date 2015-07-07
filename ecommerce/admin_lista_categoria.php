@@ -25,7 +25,5 @@
 			</tr>
 			<?php } ?>
 		</table>
-
 	</body>
-
 </html>

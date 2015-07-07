@@ -1,7 +1,7 @@
 <?php
 
 class Produto extends Model{
-
+	public $id;
 	public $nome;
 	public $descricao;
 	public $preco;
@@ -28,6 +28,7 @@ class Produto extends Model{
 
 		$linha = $this->pegaUm();
 
+		$this->id = $linha['id'];
 		$this->nome = $linha['nome'];
 		$this->preco = $linha['preco'];
 		$this->descricao = $linha['descricao'];

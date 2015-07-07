@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //configura timezone
 date_default_timezone_set("America/Bahia");
 

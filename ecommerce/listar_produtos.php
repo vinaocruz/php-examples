@@ -26,7 +26,8 @@
 			while( $linha = $produto->pegaUm() ){ $c++; ?>			
 		<?php if($c == 1){ ?><div class="row"><?php } ?>
 			<div class="four columns">
-				<?php echo $linha['nome']; ?>
+				<?php echo $linha['nome']; ?><br />
+				R$ <?php echo number_format($linha['preco'], 2, ',', '.'); ?>
 				<p>
 					<a class="button" href="exec_adicionar_carrinho.php?id=<?php echo $linha['id']; ?>">Comprar</a>	
 				</p>
