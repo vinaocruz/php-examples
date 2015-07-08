@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config/init.php';
+require_once '../config/init.php';
 
 $produto = new Produto($conn);
 $produto->id = $_GET['id'];

@@ -8,17 +8,18 @@ date_default_timezone_set("America/Bahia");
 //configurar autoload
 spl_autoload_register( 
 	function($nome_classe){
-		// echo 'Carregando objeto '.$nome_classe;
-		// echo "<br>";
 
-		if(file_exists('class/'. strtolower($nome_classe) . '.class.php')){
+		$model_path = __DIR__.'/../class/'. strtolower($nome_classe) . '.class.php';
+		if(file_exists($model_path)){
 
-			require_once 'class/'. strtolower($nome_classe) . '.class.php';
+			require_once $model_path;
 			return;
 
 		}
-		if(file_exists('helpers/'. $nome_classe . '.class.php')){
-			require_once 'helpers/'. $nome_classe . '.class.php';
+
+		$helper_path = __DIR__ . '/../helpers/'. $nome_classe . '.class.php';
+		if(file_exists($helper_path)){
+			require_once $helper_path;
 			return;
 		}
 	}
@@ -39,4 +40,4 @@ $conn = new PDO("mysql:host={$database['host']};dbname={$database['database']};c
 	$database['user'], $database['pass']);
 
 //iniciando pacotes do composer
-require_once "vendor/autoload.php";
+require_once __DIR__."/../vendor/autoload.php";

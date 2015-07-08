@@ -1,8 +1,6 @@
 ﻿<?php
 
-// var_dump($_POST);exit;
-
-include 'config/init.php';
+include '../config/init.php';
 
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];

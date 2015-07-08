@@ -1,13 +1,8 @@
 <?php
 
-// var_dump($_POST);exit;
+require_once '../config/init.php';
 
-require_once 'config/init.php';
-
-
-$conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
-
-
+// $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
 
 $produto = new Produto($conn);
 

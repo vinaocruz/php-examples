@@ -19,7 +19,7 @@ class Produto extends Model{
 
 	public function consulta($id)
 	{
-		$sql = "SELECT * FROM produtos WHERE id = :id";		
+		$sql = "SELECT * FROM $this->tabela WHERE id = :id";		
 		// $query = mysqli_query($this->conn, $sql);
 		// $linha = mysqli_fetch_assoc($query);
 		$this->resultado = $this->conn->prepare($sql);
@@ -82,5 +82,4 @@ class Produto extends Model{
 			return FALSE;
 		}
 	}
-
 }

@@ -2,7 +2,7 @@
 
 // var_dump($_GET['id']);
 
-require_once 'config/init.php';
+require_once '../config/init.php';
 
 if(is_numeric($_GET['id']) == FALSE)
 {

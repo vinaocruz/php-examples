@@ -1,6 +1,6 @@
 <?php
 	
-	require_once 'config/init.php';
+	require_once '../config/init.php';
 
 	$produto = new Produto($conn);
 	$produto->consultaTodos();
@@ -10,7 +10,7 @@
 
 ?>
 <html>
-	<?php include 'partials/head.inc.php'; ?>
+	<?php include '../partials/head.inc.php'; ?>
 	<body>
 		<h1>Lista de produtos</h1>
 
@@ -23,7 +23,5 @@
 			</tr>
 			<?php } ?>
 		</table>
-
 	</body>
-
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-require 'config/init.php';
+require '../config/init.php';
 
 $categoria = new Categoria($conn);
 $categoria->consultaTodos();
@@ -8,7 +8,7 @@ $categoria->consultaTodos();
 ?>
 
 <html>
-
+	<?php include '../partials/head.inc.php'; ?>
 	<body>
 		<h1>Cadastro de produto</h1>
 		<form method="post" enctype="multipart/form-data" action="exec_cadastrar_produto.php">

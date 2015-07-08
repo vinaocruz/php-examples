@@ -1,6 +1,6 @@
 <?php
 	
-	require_once 'config/init.php';
+	require_once '../config/init.php';
 	// $conn = mysqli_connect('localhost', 'root', 'dev123', 'orcamento');
 
 	$categoria = new Categoria($conn);
@@ -12,7 +12,7 @@
 
 ?>
 <html>
-	<?php include 'partials/head.inc.php'; ?>
+	<?php include '../partials/head.inc.php'; ?>
 	<body>
 		<h1>Lista de categorias</h1>
 		<table class="table table-striped">

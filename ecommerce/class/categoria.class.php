@@ -9,18 +9,6 @@ class Categoria extends Model{
 	// public $resultado;
 	public $tabela = 'categoria';
 
-	public function cadastrar($dados)
-	{
-		$sql = "INSERT INTO $this->tabela (nome, descricao) VALUES (:nome, :descricao)";
-
-		$this->resultado = $this->conn->prepare($sql);
-
-		$this->resultado->bindValue(':nome', $this->nome);
-		$this->resultado->bindValue(':descricao', $this->descricao);
-
-		return $this->resultado->execute();
-	}
-
 	/**
 	 * Remove uma categoria
 	 * @return boolean
@@ -36,16 +24,6 @@ class Categoria extends Model{
 	// }
 
 }
-
-
-// class Subcategoria extends Model{
-// 	public $tabela = 'subcategoria';
-
-// 	public $nome;
-// 	public $categoria;	
-// }
-
-?>
 
 
 

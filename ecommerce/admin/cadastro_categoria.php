@@ -1,5 +1,5 @@
 <html>
-
+	<?php include '../partials/head.inc.php'; ?>
 	<body>
 
 		<h1>Cadastro de Categoria</h1>
