@@ -28,12 +28,14 @@
 
 	</script>
 	<body>
+		<?php include 'partials/menu.inc.php'; ?>
 		<h1>Carrinho</h1>
 
 		<p>
-			<a class="button button-primary" href="listar_produtos.php">Continuar comprando</a>
+			<a class="button button-primary" href="index.php">Continuar comprando</a>
 		</p>
 
+		<?php if(is_null($produtos) == FALSE){ ?>
 		<table class="table table-striped">
 			<?php foreach($produtos as $item){ 
 					$produto = new Produto($conn);
@@ -60,6 +62,9 @@
 		<p>
 			<a class="button button-primary" href="#">Finalizar</a>
 		</p>
+		<?php }else { ?>
+		<p>Carrinho vazio</p>
+		<?php } ?>
 	</body>
 
 </html>

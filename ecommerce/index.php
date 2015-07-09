@@ -21,6 +21,7 @@
 	<?php include 'partials/head.inc.php'; ?>
 	<body>
 		<div class="container">
+		<?php include 'partials/menu.inc.php'; ?>
 			<?php 
 			$c = 0;
 			while( $linha = $produto->pegaUm() ){ $c++; ?>			

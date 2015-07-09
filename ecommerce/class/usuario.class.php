@@ -4,10 +4,37 @@ abstract class Usuario extends Model{
 	
 	protected $login;
 	protected $senha;
+	public $tabela = 'usuario';
 
-	final public function logar()
+	public function setLogin($login)
 	{
-		echo 'Logando usuario';
+		$this->login = $login;
+	}
+	public function setSenha($senha)
+	{
+		$this->senha = $senha;
+	}
+
+	public function logar()
+	{
+		$dados = array(
+			'login' => $this->login,
+			'senha' => $this->senha,
+		);
+		$this->consultaEspecifica($dados);
+
+		$resultado = $this->pegaUm();
+
+		//usuário não encontrado
+		if($resultado == FALSE)
+		{
+			return FALSE;
+		//usuário encontrado, cria session
+		}else
+		{
+			$_SESSION['cliente_id'] = $resultado['id'];
+			return TRUE;
+		}
 	}
 
 	public function logout()

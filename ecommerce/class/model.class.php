@@ -27,6 +27,31 @@ abstract class Model{
 		return $this->resultado->execute();
 	}
 
+	public function consultaEspecifica($where)
+	{
+		$sql = "SELECT * FROM " . $this->tabela;
+
+		$total = count($where);
+		if($total > 0)
+		{
+			$i = 0;
+			$sql.= " WHERE ";
+			foreach($where as $key => $value)
+			{
+				$i++;
+				$sql.= "$key = :$key";
+				if($total > $i) $sql.= " AND ";
+			}
+		}
+		$this->resultado = $this->conn->prepare($sql);
+// var_dump($this->resultado); exit;
+
+		foreach($where as $key => $value)
+			$this->resultado->bindValue(":$key", $value);
+
+		return $this->resultado->execute();
+	}
+
 	/**
 	 * Retorna um elemento do resultado da consulta
 	 */
