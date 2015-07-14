@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2015 at 07:24 PM
+-- Generation Time: Jul 14, 2015 at 05:23 PM
 -- Server version: 5.5.37-0ubuntu0.12.04.1
 -- PHP Version: 5.5.11-3+deb.sury.org~precise+1
 
@@ -33,6 +33,104 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   PRIMARY KEY (`id`),
   KEY `fk_administrador_usuario1_idx` (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alunos`
+--
+
+CREATE TABLE IF NOT EXISTS `alunos` (
+  `idaluno` int(10) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(250) NOT NULL,
+  `telefone` varchar(100) NOT NULL,
+  `escolaridade` varchar(200) NOT NULL,
+  `escola` varchar(100) NOT NULL,
+  `instituicao` varchar(250) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `senha` varchar(32) NOT NULL,
+  `data_registro` date NOT NULL,
+  PRIMARY KEY (`idaluno`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=569 ;
+
+--
+-- Dumping data for table `alunos`
+--
+
+INSERT INTO `alunos` (`idaluno`, `nome`, `telefone`, `escolaridade`, `escola`, `instituicao`, `email`, `senha`, `data_registro`) VALUES
+(519, 'Rosiane', '32448942', 'Superior Completo', 'Pública', 'Unifacs', 'rosianecar@terra.com.br', '485fe019a886ab25273da455dc0350ef', '2006-08-03'),
+(520, 'Ruth Neia Oliveira Cruz', '8117-1818', 'Superior Incompleto', 'Pública', 'Colegio Municipal de Itabela', 'ruth_lyra@hotmail.com', 'e3bc81c08c02a2c0fbf1fab6d359fd83', '2006-08-03'),
+(521, 'Crisólita Vieira Oliveira', '73-3273 2454', 'Superior Incompleto', 'Pública', '', 'nina_flor6@hotmail.com', '613a43eaf8b2bfa5c7ff39ddfab043e0', '2006-08-03'),
+(522, 'Wallace Vieira Gonçalves', '(75) 33642406', 'Superior Completo', 'Particular', 'FTC', 'wallacevieiragoncalves@bol.com.br', 'ae0eea6eb6d63f98da42de867c47a0f8', '2006-08-03'),
+(523, 'magda xavier macedo', '(075)33302073', 'Ensino Fundamental', 'Pública', '', 'magdaxavier10@yahoo.com.br', '6b96e671114bcd80d18e2d610e224ada', '2006-08-03'),
+(524, 'josana de alcantara nascimento', '75-3483-4345 /9', 'Superior Incompleto', 'Pública', 'Instituto de Educação Gastão Guimaraes', 'josana82@hotmail.com', '7f8373362165156be23fb63ccd1da9bc', '2006-08-03'),
+(525, 'wilton avila', '', 'Superior Incompleto', 'Pública', '', 'wiltonavila@hotmail.com', 'af4e75582384575b105298cb4d7cd291', '2006-08-03'),
+(526, 'Gutemberg Lacerda', '73-8113-3317', 'Superior Incompleto', 'Pública', 'Estadual e Federal', 'guto_br2@hotmail.com', 'a28f05f5f45fe2d8a900736c8935fe44', '2006-08-03'),
+(527, 'GILVANESCA', '(79) 9975-4947', 'Superior Incompleto', 'Particular', 'FTC-EAD', 'gilvanescarj@hotmail.com', '2c93ca858b4dbcaa6a70bd9715e3a8fd', '2006-08-03'),
+(528, 'maria milza de souza batista', '75-3339-2128', 'Superior Incompleto', 'Pública', 'colegio estaduaal', 'milzabatista2@yaahoo.com.br', '7fd7cc4dc43f4910d78f9823e53092f8', '2006-08-03'),
+(529, 'Alessandra Dias de Oliveira', '077 3436-1559', 'Superior Incompleto', 'Pública', 'Centro Educacional de Barra do choça', 'alediasoliveira24@hotmail.com', 'f3ca5faa60ecabc22fad691ff9d1f016', '2006-08-03'),
+(530, 'claudia', '32722137/73 811', 'Superior Incompleto', 'Pública', 'Colégio Municipal São Pedro', 'claumatos6@hotmail.com', 'f71d4ccc6c6728c229e89d3ccba415e4', '2006-08-03'),
+(531, 'polyana leão alcantara', '77-3677-2112/22', 'Superior Incompleto', 'Particular', 'ftc-ead', 'poliana_9@yahoo.com.br', 'adf1838ff29aae4c44a7f23c6ebffa26', '2006-08-03'),
+(532, 'Erisvaldo Bispo Rosa', '75-33352118', 'Superior Incompleto', 'Particular', 'ftc', 'erisvaldovitor@hotmail.com', 'ac7b016964114cbacc81dae27482ca14', '2006-08-03'),
+(533, 'ronival jose fernandes', '075 33642481', 'Superior Incompleto', 'Pública', 'centro educacional manoel teixeira leite', 'fonivalfernandes1@yhaool.com.br', 'bfd925fa86084bd0300fde7fd05ddd97', '2006-08-03'),
+(534, 'SILESON SANTOS CAJÉ', '3343-1335', 'Superior Incompleto', 'Particular', '', 'cajepacatuba@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2006-08-03'),
+(535, 'ANA MARIA BUNY', '33772596', 'Superior Incompleto', 'Particular', 'FTC FACULDADE DE TECNOLOGIA E CIENCIAS', 'abuny30@yahoo.com.br', '237391cf8685346ec9124eac31cb77fd', '2006-08-03'),
+(536, 'vanessa', '88263711', 'Ensino Médio', 'Pública', '', 'melvst@hotmail.com', '0ef174fc614c8d61e2d63329ef7f46c0', '2006-08-03'),
+(537, 'Suziane Farias de Bulhões', '(75) 3662-2191', 'Superior Incompleto', 'Particular', 'FTC - EaD', 'suzianebulhoes@ig.com.br', '68eda639676c9f8b640c25ca942a1693', '2006-08-03'),
+(538, 'leticia de souza almeida', '8126-3830', 'Superior Incompleto', 'Pública', 'celem', 'net-house@hotmail.com', '0e1ebad68af7f0ae4830b7ac92bc3c6f', '2006-08-03'),
+(539, 'Ariana Fonseca Lima', '(75) 3426-2656', 'Superior Incompleto', 'Pública', '', 'nanbio28@yahoo.com.br', 'a7f10daf664522f78c17e2862f691b58', '2006-08-03'),
+(540, 'Zânia Guimarães Cabral', '32447647', 'Ensino Médio', 'Pública', '', 'zgcabral@ig.com.br', '113180fa10fcf7a118ecdbcd21c4cd24', '2006-08-03'),
+(541, 'Roberto César Silva Almeida', '75 - 36902445', 'Superior Incompleto', 'Pública', 'PÚBLICA', 'roberto.cesar@oi.com.br', '40b5e13d13b67c18539c6a5766ad459d', '2006-08-03'),
+(542, 'marcelina rita bastos neta', '', 'Ensino Médio', 'Pública', 'colegio estadual de souto soares', 'marcelinabastos@yahoo.com.br', '5e5d503d893e6c55b9c1e016a2842fff', '2006-08-03'),
+(543, 'Dilma Reis Fahning', '07332303454', 'Superior Incompleto', 'Pública', 'FTC ead', 'dilmafahning@hotmail.com', '24e0e886083f92885b5ac709d449280a', '2006-08-03'),
+(544, 'Jorge', '083-88417959', 'Ensino Médio', 'Pública', 'Colegio da policia militar da bahia', 'principe_jorginho@hotmail.com', 'b5807eca845b9cc321d3fb0cfa3ae528', '2006-08-03'),
+(545, 'maria milza de souza batista', '75-33392128', 'Superior Incompleto', 'Pública', 'colegio estadual', 'milzabatista2@yahoo.com.br', '1bb58cbea4939377aed3fe9ce95c58be', '2006-08-03'),
+(546, 'Jobel Celso Silva Luz', '3412-2443', 'Superior Incompleto', 'Pública', 'CEmi', 'jobelcelso@hotmail.com', '04b79b0aa20f6691aa2a01db02fcca9b', '2006-08-03'),
+(547, 'Ancelmo Mattos de Souza', '7734122138', 'Ensino Médio', 'Pública', 'Centro Educacional Municipal de Iramaia', 'ancelmoms50@yahoo.com.br', '317964544f559d2024642435bd7fd124', '2006-08-03'),
+(548, 'maria valdeziana furtado ribeiro souto', '75 34262093', 'Superior Completo', 'Pública', 'Liceu do ceará', 'valdeziana@yahoo.com.br', 'f0ea2afda3712165335eadd3b47cc752', '2006-08-03'),
+(549, 'Regina Célia Novaes Vieira Carvalho', '(77) 34452521', 'Ensino Médio', 'Pública', '', 'reginaprodec@yahoo.com.br', '934b535800b1cba8f96a5d72f72f1611', '2006-08-03'),
+(550, 'Vasni', '(74)3531-1521 o', 'Superior Incompleto', 'Pública', 'Colégio Municipal Professor Ivo Braga', 'vasnyfeitosa@yahoo.com.br', 'e10adc3949ba59abbe56e057f20f883e', '2006-08-03'),
+(551, 'anne suelen silva santos', '3303 3353', 'Superior Incompleto', 'Particular', 'ftc', 'annesuelen_07@hotmail.com', '5968996e0aca329cf3218086223f8308', '2006-08-03'),
+(552, 'Ed Carlos de Andrade Barbosa', '(75) 3489-9354', 'Superior Incompleto', 'Pública', 'Centro Integrado de Educação Assis Chateaubriand', 'edkarllos@hotmail.com', '5c12daf75802d8e13a18d8c7d82fca10', '2006-08-03'),
+(553, 'wellington Silva dos Santos', '(77)34122506', 'Superior Incompleto', 'Pública', 'Centro Educacional M. Iramaia', 'wellingtongrego@yahoo.com.br', 'dc312e81c937f36a1c471246823b23ea', '2006-08-03'),
+(554, 'Tiago', '', 'Ensino Médio', 'Pública', '', 'itabunensee@msn.com', '002eed4e7de537fad7c453f39615ed33', '2006-08-03'),
+(555, 'Simone Silva Pereira', '73-88097308', 'Superior Incompleto', 'Pública', 'Colégio Estadual Duque de Caxias', 'simonepacheco10@yahoo.com.br', '7aee1b75b527e215f31e20a5c4e7a768', '2006-08-03'),
+(556, 'AFONSO HENRIQUS AMARAL NEVES', '07533252192', 'Superior Incompleto', 'Particular', 'FACULDADE DE TECNOLOGIA E CIENCIA', 'afonsonevesn@yahoo.com.br', '93612af28582348c236a0ffceceb76b9', '2006-08-03'),
+(557, 'Vanuzia Oliveira Lapa', '(77) 3412-2129', 'Superior Incompleto', 'Pública', 'CEMI', 'vanuzia.oliveira@hotmail.com', 'd29dabb664fc9bc3415974da329516e4', '2006-08-03'),
+(558, 'Jackeline Moraes Oliveira', '(077) 36772182', 'Superior Incompleto', 'Pública', '', 'jackelinemoraes@bol.com.br', '346bf307c2d5ef3d13af943f2da0bb44', '2006-08-03'),
+(559, 'osmarina iria moser pokriwieski', '27 3373 3483', 'Superior Incompleto', 'Pública', '', 'nina.pokri@bol.com.br', '866b344b7f093135643f7666b09e7ddb', '2006-08-03'),
+(560, 'Josileide Lima Santos', '', 'Superior Incompleto', 'Particular', '', 'josinhals@yahoo.com.br', '8dd059b96c96d94f077668d110eb3335', '2006-08-03'),
+(561, 'jordão Barbosa de Souza', '34812504', 'Superior Completo', 'Pública', 'FTC', 'jordaosouza@yahoo.com.br', '2fcf5c7fc7c197152061e5f712771495', '2006-08-03'),
+(562, 'Joscélia freitas barbosa', '7332722918', 'Superior Incompleto', 'Particular', 'FTC ead', 'cecer_freitas@hotmail.com', '3aedd32b1601084db06a546fdc77d7a0', '2006-08-03'),
+(563, 'Acsa sousa de Almeida', '7381082982', 'Superior Incompleto', 'Particular', 'FTC ead', 'acsa.almeida@hotmail.com', '0ed65fea9927852f8be7b41244cad0ec', '2006-08-03'),
+(564, 'Edimary Luzia Barbosa Mendonça', '77 - 3693-2233', 'Superior Incompleto', 'Pública', 'Colégio Estadual Paulo VI', 'ed.mary@ig.com.br', '0348dcd774a2892097b9d5c84ce882d3', '2006-08-03'),
+(565, 'luciano rocha', '74 3656-2116', 'Ensino Médio', 'Pública', '', 'luzaivosrocha@yahoo.com.br', 'c9b18d9f2b760e1d837f6c87b5ed2036', '2006-08-03'),
+(566, 'José Novaes', '3445-2668', 'Superior Incompleto', 'Pública', '', 'josenovaes2@yahoo.com.br', 'cc0ed25980584a2d31110c2b93a48666', '2006-08-03'),
+(567, 'cledina', '3221*7523', 'Superior Incompleto', '', 'faculdade nobre de feira de santana', 'fancac@hotmail.com', 'ad40f32155fc2499a5642f94ed5cf22b', '2006-08-03'),
+(568, 'Josevaldo Araujo da Silva', '36842006', 'Ensino Médio', 'Pública', '', 'josevaldoaraujo@yahoo.com.br', '12c5fee39f9b6201d016226d33a24845', '2006-08-03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categoria`
+--
+
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `descricao` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nome`, `descricao`) VALUES
+(5, 'Informática', 'Departamento de TI e eletrônicos'),
+(6, 'Padaria', 'Pães, massa, etc'),
+(7, 'Brinquedos', 'Teste'),
+(9, 'Café', 'Teste pdo');
 
 -- --------------------------------------------------------
 
@@ -10093,9 +10191,32 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nome` varchar(255) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `telefone` varchar(45) DEFAULT NULL,
+  `cpf` varchar(15) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_cliente_usuario_idx` (`usuario_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `email`, `telefone`, `cpf`, `usuario_id`) VALUES
+(8, 'Vinicius Cruz', 'vinaocruz@gmail.com', NULL, '', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `compra`
+--
+
+CREATE TABLE IF NOT EXISTS `compra` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` char(1) NOT NULL,
+  `valor_total` float NOT NULL,
+  `data_registro` datetime NOT NULL,
+  `cliente_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10106,7 +10227,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 CREATE TABLE IF NOT EXISTS `enderecos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rua` int(11) NOT NULL,
+  `rua` varchar(200) NOT NULL,
   `numero` varchar(10) NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `cidade` varchar(100) NOT NULL,
@@ -10165,24 +10286,68 @@ INSERT INTO `estados` (`id`, `sigla`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `item`
+--
+
+CREATE TABLE IF NOT EXISTS `item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `compra_id` int(11) NOT NULL,
+  `produto_id` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `valor` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produtos`
+--
+
+CREATE TABLE IF NOT EXISTS `produtos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria_id` int(11) NOT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `preco` decimal(10,2) DEFAULT NULL,
+  `descricao` text NOT NULL,
+  `imagem` varchar(200) NOT NULL,
+  `data_criado` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `categoria_id`, `nome`, `preco`, `descricao`, `imagem`, `data_criado`) VALUES
+(1, 0, 'ipad', '1200.50', '128GB', '557621b106bbb_iPad-128GB.jpg', '2015-06-08 23:13:53'),
+(2, 0, 'ipad 2', '2200.50', '128GB', '557622616981d_iPad-128GB.jpg', '2015-06-08 23:16:49'),
+(3, 5, 'iPhone', '2200.00', '128Gb', '5578c61cad472_iphone.jpg', '2015-06-10 23:19:56'),
+(4, 0, 'Velotrol', '200.00', '3 rodas', '557f5d3d95123_velotrol-da-turminha-radical-14383-MLB3863569439_022013-F.jpg', '2015-06-15 20:18:21'),
+(5, 7, 'Velotrol', '200.00', '3 rodas', '557f5dae2a98f_velotrol-da-turminha-radical-14383-MLB3863569439_022013-F.jpg', '2015-06-15 20:20:14');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `usuario`
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` varchar(45) DEFAULT NULL,
+  `login` varchar(45) DEFAULT NULL,
   `senha` varchar(45) DEFAULT NULL,
   `nivel` varchar(10) DEFAULT NULL,
+  `facebook_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `usuario`, `senha`, `nivel`) VALUES
-(1, 'marcelo', '1234', 'adm'),
-(2, 'vinao cruz', 'vini123', 'adm');
+INSERT INTO `usuario` (`id`, `login`, `senha`, `nivel`, `facebook_id`) VALUES
+(1, 'marcelo', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'adm', 0),
+(9, 'vinaocruz@gmail.com', '28bffcdc24825c701baa88316383ffdf18b38c67', NULL, 955034301227286);
 
 --
 -- Constraints for dumped tables

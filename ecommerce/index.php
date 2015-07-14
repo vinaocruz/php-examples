@@ -6,7 +6,8 @@
 	// mysqli_set_charset($conn, "utf8");
 
 	$produto = new Produto($conn);
-	$produto->consultaTodos();
+	// $produto->consultaTodos();
+	$produto->consultaBusca($_GET['busca']);
 
 
 	// if(isset($_GET['categoria_id']) == TRUE)

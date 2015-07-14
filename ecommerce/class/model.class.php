@@ -27,6 +27,17 @@ abstract class Model{
 		return $this->resultado->execute();
 	}
 
+	public function consultaBusca($termo)
+	{
+		$sql = "SELECT * FROM " . $this->tabela . " WHERE nome LIKE '%:nome%' OR descricao LIKE '%:nome%'";
+		$this->resultado = $this->conn->prepare($sql);
+
+		$this->resultado->bindValue(":nome", $termo);
+
+		return $this->resultado->execute();
+	}
+
+
 	public function consultaEspecifica($where)
 	{
 		$sql = "SELECT * FROM " . $this->tabela;
@@ -86,7 +97,7 @@ abstract class Model{
 		// $valores = implode("', '", $dados); //TI', 'Teste', '2015
 		
 
-		$sql = "INSERT INTO $this->tabela ($campos) VALUES ('$marcadores')";
+		$sql = "INSERT INTO $this->tabela ($campos) VALUES ($marcadores)";
 		// INSERT INTO categoria (nome, descricao, data) VALUES (:nome, :descricao, :data)
 
 		$this->resultado = $this->conn->prepare($sql);

@@ -2,10 +2,29 @@
 
 class Cliente extends Usuario{
 	public $tabela = 'cliente';
+
 	public $nome;
+	public $email;
+	public $telefone;
+	public $cpf;
 
 	public function getNome(){
 		return $this->nome;
+	}
+
+	public function cadastroCompleto($dados)
+	{
+		$this->tabela = 'usuario';
+		if($this->cadastrar($dados['usuario']) == TRUE)
+		{
+			$this->tabela = 'cliente';
+			$dados['cliente']['usuario_id'] = $this->conn->lastInsertId();
+			return $this->cadastrar($dados['cliente']);
+		}else
+		{
+			var_dump($this->resultado->errorInfo());
+			return FALSE;
+		}
 	}
 
 

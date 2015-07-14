@@ -2,9 +2,16 @@
 
 abstract class Usuario extends Model{
 	
-	protected $login;
-	protected $senha;
+	public $login;
+	public $senha;
+	public $facebook_id;
+
 	public $tabela = 'usuario';
+
+	public function setTabela()
+	{
+		$this->tabela = 'usuario';
+	}
 
 	public function setLogin($login)
 	{
@@ -15,11 +22,39 @@ abstract class Usuario extends Model{
 		$this->senha = $senha;
 	}
 
-	public function logar()
+	public function logarComFacebook()
 	{
+		$this->setTabela();
 		$dados = array(
 			'login' => $this->login,
-			'senha' => $this->senha,
+			'facebook_id' => $this->facebook_id,
+		);
+
+		//consulta no banco
+		$this->consultaEspecifica($dados);
+
+		$resultado = $this->pegaUm();
+		// var_dump($this->resultado); exit;
+
+		//usuário não encontrado
+		if($resultado == FALSE)
+		{
+			return FALSE;
+		//usuário encontrado, cria session
+		}else
+		{
+			$_SESSION['cliente_id'] = $resultado['id'];
+			return TRUE;
+		}
+
+	}
+
+	public function logar()
+	{
+		$this->setTabela();
+		$dados = array(
+			'login' => $this->login,
+			'senha' => sha1($this->senha),
 		);
 		$this->consultaEspecifica($dados);
 
